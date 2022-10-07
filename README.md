@@ -58,7 +58,7 @@
   - Constructor
   - Getter and Setter
   - toString() method
-  - 
+  
 ### Step 2
 - Create order package and Order Class under the package
 - Implement OrderController and OrderService Class
@@ -78,6 +78,11 @@
 </dependency>
 ```
 - Right click `pom.xml` > Maven > Reload project
+
+### Step4
+- Apply @Entity and @Table annotation in Order Class
+- Potential error: `GenerationTarget encountered exception accepting Error executing DDL`
+  - solution: see Q&A - 2
 
 ## Q&A
 1. [What is the purpose of mvnw and mvnw.cmd files?](https://stackoverflow.com/questions/38723833/what-is-the-purpose-of-mvnw-and-mvnw-cmd-files)
