@@ -18,18 +18,20 @@ public class Order {
             generator = "order_sequence"
     )
     private Long id;
-    private Long cartValue;
-    private Long deliveryDistance;
-    private Long numberOfItems;
+    private Integer cartValue;
+    private Integer deliveryDistance;
+    private Integer numberOfItems;
     private LocalDate time;
+    @Transient
+    private int fee;
 
     public Order() {
     }
 
     public Order(Long id,
-                 Long cartValue,
-                 Long deliveryDistance,
-                 Long numberOfItems,
+                 Integer cartValue,
+                 Integer deliveryDistance,
+                 Integer numberOfItems,
                  LocalDate time) {
         this.id = id;
         this.cartValue = cartValue;
@@ -38,9 +40,9 @@ public class Order {
         this.time = time;
     }
 
-    public Order(Long cartValue,
-                 Long deliveryDistance,
-                 Long numberOfItems,
+    public Order(Integer cartValue,
+                 Integer deliveryDistance,
+                 Integer numberOfItems,
                  LocalDate time) {
         this.cartValue = cartValue;
         this.deliveryDistance = deliveryDistance;
@@ -56,27 +58,27 @@ public class Order {
         this.id = id;
     }
 
-    public Long getCartValue() {
+    public Integer getCartValue() {
         return cartValue;
     }
 
-    public void setCartValue(Long cartValue) {
+    public void setCartValue(Integer cartValue) {
         this.cartValue = cartValue;
     }
 
-    public Long getDeliveryDistance() {
+    public Integer getDeliveryDistance() {
         return deliveryDistance;
     }
 
-    public void setDeliveryDistance(Long deliveryDistance) {
+    public void setDeliveryDistance(Integer deliveryDistance) {
         this.deliveryDistance = deliveryDistance;
     }
 
-    public Long getNumberOfItems() {
+    public Integer getNumberOfItems() {
         return numberOfItems;
     }
 
-    public void setNumberOfItems(Long numberOfItems) {
+    public void setNumberOfItems(Integer numberOfItems) {
         this.numberOfItems = numberOfItems;
     }
 
@@ -88,6 +90,42 @@ public class Order {
         this.time = time;
     }
 
+    public int getFee() {
+        int baseDeliveryFee = 200;
+        int surchargeCartValue = cartValueSurcharge(this.cartValue);
+        int extraDeliveryAmount = extraDeliveryFee(this.deliveryDistance);
+        int surchargeItems = itemSurcharge(this.numberOfItems);
+        return baseDeliveryFee + surchargeCartValue + extraDeliveryAmount + surchargeItems;
+    }
+
+
+    private int cartValueSurcharge(Integer cartValue) {
+        int surchargeCartValue = 0;
+        if (cartValue < 1000) {
+            surchargeCartValue = 1000 - cartValue;
+        }
+        return surchargeCartValue;
+    }
+
+    private int extraDeliveryFee(Integer deliveryDistance) {
+        int extraDeliveryAmount = 0;
+        if (deliveryDistance > 1000) {
+            int extraDistance = deliveryDistance - 1000;
+            int extraUnit = (int) Math.floor(extraDistance / 500) + 1;
+            extraDeliveryAmount = extraUnit * 100;
+        }
+        return extraDeliveryAmount;
+    }
+
+    private int itemSurcharge(Integer numberOfItems) {
+        int surchargeItems = 0;
+        if (numberOfItems > 4) {
+            int extraItems = numberOfItems - 4;
+            surchargeItems = extraItems * 500;
+        }
+        return surchargeItems;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
@@ -96,6 +134,14 @@ public class Order {
                 ", deliveryDistance=" + deliveryDistance +
                 ", numberOfItems=" + numberOfItems +
                 ", time=" + time +
+                ", fee=" + fee +
                 '}';
     }
+
+    
+
+
+
+
+
 }

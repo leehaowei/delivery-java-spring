@@ -99,5 +99,6 @@
   - [Javascript + Express](https://github.com/leehaowei/delivery-js-express)
 - [Free Spring Boot tutorial](https://youtu.be/9SGDpanrc8U)
 
-## Shorcuts in IntelliJ
+## Shorcuts - IntelliJ
 - `⌘` + `N`: Generate
+- `⌘` + `⌥` + `V`: Introduce Variable

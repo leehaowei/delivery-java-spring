@@ -1,6 +1,6 @@
 package github.com.leehaowei.deliveryapp.order;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -11,15 +11,14 @@ import java.util.List;
 @Service
 public class OrderService {
 
+    private final OrderRepository orderRepository;
+
+    @Autowired
+    public OrderService(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+
     public List<Order> getOrders() {
-        return List.of(
-                new Order(
-                        1L,
-                        790L,
-                        2230L,
-                        4L,
-                        LocalDate.of(2022, Month.OCTOBER, 6)
-                )
-        );
+        return orderRepository.findAll();
     }
 }
