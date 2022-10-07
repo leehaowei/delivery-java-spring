@@ -53,6 +53,9 @@
   - Constructor
   - Getter and Setter
   - toString() method
+### Step 2
+- Create order package and Order Class under the package
+- Implement OrderController and OrderService Class
 
 
 ## Q&A
