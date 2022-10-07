@@ -9,13 +9,13 @@ public class Order {
 
     @Id
     @SequenceGenerator(
-            name = "student_sequence",
-            sequenceName = "student_sequence",
+            name = "order_sequence",
+            sequenceName = "order_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "student_sequence"
+            generator = "order_sequence"
     )
     private Long id;
     private Long cartValue;

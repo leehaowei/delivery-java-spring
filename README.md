@@ -81,6 +81,11 @@
 
 ## Q&A
 1. [What is the purpose of mvnw and mvnw.cmd files?](https://stackoverflow.com/questions/38723833/what-is-the-purpose-of-mvnw-and-mvnw-cmd-files)
+2. How to solve `GenerationTarget encountered exception accepting Error executing DDL`<br>
+   Add `spring.jpa.properties.hibernate.globally_quoted_identifiers=true` to `application.properties`
+   - [reference1](https://jtuto.com/solved-generationtarget-encountered-exception-accepting-error-executing-ddl/#:~:text=spring.jpa.properties.hibernate.globally_quoted_identifiers%3Dtrue)
+   - [reference2](https://docs.spring.io/spring-boot/docs/1.3.0.M2/reference/html/boot-features-sql.html#boot-features-creating-and-dropping-jpa-databases:~:text=spring.jpa.properties.hibernate.globally_quoted_identifiers%3Dtrue)
+   
 
 ## Reference
 - [Project idea](https://github.com/woltapp/engineering-summer-intern-2022)
