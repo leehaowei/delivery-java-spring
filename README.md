@@ -1,5 +1,6 @@
 # delivery-java-spring
 
+## Settings
 ### Installation
 
 - [Homebrew](https://brew.sh/)
@@ -30,3 +31,20 @@
     unzip delivery-java-spring.zip
     ```
 - Open the Directory with IntelliJ
+
+## Implementation
+### Step 1
+- comment out jpa in `pom.xml` before implementing database
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+```
+- Right click `pom.xml` > Maven > Reload project 
+- Create `order` package
+- Create `Order` Class
+- `⌘` + `N` to generate
+  - Constructor
+  - Getter and Setter
+  - toString() method
