@@ -70,6 +70,14 @@
 - Make sure the credentials in `application.properties` align with that in `docker-compose.yml`
 - Run `docker compose up` to set up postgresql database
 - Run `make db.console` to inspect the database
+- uncomment jpa in `pom.xml`
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+```
+- Right click `pom.xml` > Maven > Reload project
 
 ## Q&A
 1. [What is the purpose of mvnw and mvnw.cmd files?](https://stackoverflow.com/questions/38723833/what-is-the-purpose-of-mvnw-and-mvnw-cmd-files)
