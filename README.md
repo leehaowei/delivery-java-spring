@@ -69,7 +69,7 @@
 - Create [Makefile](https://makefiletutorial.com/) for convenience
 - Make sure the credentials in `application.properties` align with that in `docker-compose.yml`
 - Run `docker compose up` to set up postgresql database
-- Run `make db.console` to connect to inspect the database
+- Run `make db.console` to inspect the database
 
 ## Q&A
 1. [What is the purpose of mvnw and mvnw.cmd files?](https://stackoverflow.com/questions/38723833/what-is-the-purpose-of-mvnw-and-mvnw-cmd-files)
