@@ -1,5 +1,10 @@
 # delivery-java-spring
 
+## Discription
+- Implement RESTful API with Java and Spring Boot framework
+- Controller and Service structure
+- PostgreSQL database running on Docker 
+
 ## Settings
 ### Installation
 
